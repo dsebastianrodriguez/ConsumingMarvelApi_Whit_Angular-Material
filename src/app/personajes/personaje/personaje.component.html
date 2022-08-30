@@ -1,0 +1,35 @@
+<div *ngIf="route.children.length ==0">
+<div class="personaje" >
+    <div *ngFor="let personaje of personaje |async">
+        <ng-container>
+            <div class="card">
+            <mat-card>
+                <mat-card-title>
+                    {{personaje.name}}
+                </mat-card-title>
+                <img mat-card-image src="{{personaje.thumbnail.path}}.{{personaje.thumbnail.extension}}" alt=" {{personaje.name}}">
+                <mat-card-footer>
+                    <a  mat-flat-button color="primary" [routerLink]="[personaje.id,'comics' ]">
+                       ver comics
+                    </a>
+                </mat-card-footer>
+            </mat-card>
+            
+            </div>
+
+            <div class="descripcion">
+
+                <p>{{personaje.description}}</p>
+                <p>{{personaje.modified}}</p>
+
+                <button mat-fab color="primary" style=" margin-left: 0 "  [routerLink]="['/personajes']">
+                    <mat-icon >undo</mat-icon>
+                </button>
+  
+            </div>
+            
+        </ng-container>
+    </div>
+</div>
+</div>
+<router-outlet></router-outlet>

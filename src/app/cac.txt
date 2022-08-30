@@ -1,0 +1,7 @@
+<pagination-controls (pageChange)="page = $event" previousLabel="anterior" nextLabel="siguiente">
+</pagination-controls>
+
+| paginate :{itemsPerPage: 4, currentPage: page}" style="padding: 5px
+public page!:number;
+
+https://gateway.marvel.com:443/v1/public/characters?ts=1&apikey=ea5c51f46f53cf102ddbfda4929b1672&hash=c5e2f5faa725913a3a049eb2616d36c5&id=1017100/comics

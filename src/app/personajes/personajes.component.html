@@ -1,0 +1,29 @@
+<div *ngIf="route.children.length ==0">
+<div fxFlex fxLayout="column">
+    <div fxLayout="row wrap">
+        <div fxFlex="25" fxFlex.md="33" fxFlex.sm="50" fxFlex.xs="100" fxLayout="column"
+        *ngFor="let personaje of todosPersonajes | async | paginate :{itemsPerPage: 4, currentPage: page}"  style="padding: 5px">
+            <mat-card >
+                <img mat-card-image src="{{personaje.thumbnail.path}}.{{personaje.thumbnail.extension}}" alt="{{personaje.name}}">
+                <mat-card-title>
+                    {{personaje.name}}
+                </mat-card-title>
+                
+                <mat-card-footer>
+                    <button mat-fab color="primary" style=" margin-left: 50% " (click)="getPersonaje(personaje.id)" [routerLink]="['/personajes/personaje/',personaje.id ]">
+                        <mat-icon >visibility</mat-icon>
+                    </button>
+                    <!-- <a (click)="getPersonaje(personaje.id)"  mat-flat-button color="primary" [routerLink]="['personaje/',personaje.id ]">
+                        Detalles
+                    </a> -->
+                </mat-card-footer>
+            </mat-card>
+        </div>
+    </div>
+</div>
+</div>
+
+<pagination-controls *ngIf="route.children.length ==0" style="text-align: center" (pageChange)="page = $event" previousLabel="anterior" nextLabel="siguiente">
+</pagination-controls>
+
+<router-outlet></router-outlet>
